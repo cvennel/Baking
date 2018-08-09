@@ -24,16 +24,21 @@ public class AsyncJSONRetriever extends AsyncTask<Void,Void,String> {
             String jsonResults = NetworkUtils.getJSONData(url);
             recipies = JsonParser.parseRecipies(jsonResults);
 
-            callback.onTaskComplete(recipies);
+
             return jsonResults;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
+
+    @Override
+    protected void onPostExecute(String s) {
+        callback.onTaskComplete(recipies);
+    }
 }
 
-interface AsyncJSONRetrieverCompleted<ArrayList>{
+interface AsyncJSONRetrieverCompleted<T>{
 
-    void onTaskComplete(ArrayList result);
+    void onTaskComplete(T result);
 }

@@ -1,5 +1,6 @@
 package com.example.chris.baking;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -15,8 +17,16 @@ import java.nio.file.Path;
 
 public class RecipeCardFragment extends Fragment {
 
+    Recipe mRecipe;
     String mTitle;
     String mImageLocation;
+
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(getContext(),"You clicked on the " +mRecipe.getName() + " recipe", Toast.LENGTH_LONG).show();
+        }
+    };
 
     public RecipeCardFragment() {
         // Required empty public constructor
@@ -30,6 +40,8 @@ public class RecipeCardFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_recipie_card, container, false);
 
         TextView textView = rootView.findViewById(R.id.recipe_title);
+
+        rootView.setOnClickListener(listener);
 
         if(mTitle != null){
             textView.setText(mTitle);
@@ -54,5 +66,7 @@ public class RecipeCardFragment extends Fragment {
     public void setImage(String imageLocation){
         mImageLocation = imageLocation;
     }
-
+    public void setmRecipe(Recipe recipe){
+        mRecipe = recipe;
+    }
 }

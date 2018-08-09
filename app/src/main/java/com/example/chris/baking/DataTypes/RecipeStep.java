@@ -1,8 +1,11 @@
 package com.example.chris.baking;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.net.URL;
 
-public class RecipeStep {
+public class RecipeStep implements Parcelable{
     private int id;
     private String shortDescription;
     private String description;
@@ -55,5 +58,41 @@ public class RecipeStep {
 
     public void setThumbnailURL(String thumbnailURL) {
         this.thumbnailURL = thumbnailURL;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+        parcel.writeInt(id);
+        parcel.writeString(shortDescription);
+        parcel.writeString(description);
+        parcel.writeString(videoURL);
+        parcel.writeString(thumbnailURL);
+
+    }
+
+    public static final Parcelable.Creator<RecipeStep> CREATOR = new Creator<RecipeStep>() {
+        @Override
+        public RecipeStep createFromParcel(Parcel parcel) {
+            return new RecipeStep(parcel);
+        }
+
+        @Override
+        public RecipeStep[] newArray(int i) {
+            return new RecipeStep[0];
+        }
+    };
+
+    RecipeStep(Parcel parcel){
+        id = parcel.readInt();
+        shortDescription = parcel.readString();
+        description = parcel.readString();
+        videoURL = parcel.readString();
+        thumbnailURL = parcel.readString();
     }
 }
