@@ -1,15 +1,14 @@
-package com.example.chris.baking;
+package com.example.chris.baking.UI;
 
-import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.DataTypes.RecipeStep;
+import com.example.chris.baking.R;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -41,7 +43,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.squareup.picasso.Picasso;
 
 
-public class DetailActivity extends AppCompatActivity implements ExoPlayer.EventListener{
+public class DetailFragment extends AppCompatActivity implements ExoPlayer.EventListener{
 
     public static final String EXTRA_RECIPE = "extra_recipe";
     public static final String EXTRA_STEP = "extra_step";
@@ -78,7 +80,11 @@ public class DetailActivity extends AppCompatActivity implements ExoPlayer.Event
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             setLandscapeView();
+        } else {
+            setPortraitView();
         }
+
+
     }
 
 
@@ -94,22 +100,26 @@ public class DetailActivity extends AppCompatActivity implements ExoPlayer.Event
 
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
 
-            PlayerView playerView = findViewById(R.id.recipe_step_fragment_exoplayer_view);
-            ViewGroup.LayoutParams params = playerView.getLayoutParams();
-
-            //https://androidactivity.wordpress.com/2011/10/04/use-dip-sp-metrics-programmatically/
-            params.height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 400, getResources().getDisplayMetrics());
-
-
-            params.width = LinearLayout.LayoutParams.MATCH_PARENT;
-
-
-            if(getSupportActionBar() != null){
-                getSupportActionBar().show();
-            }
+            setPortraitView();
 
         }
 
+    }
+
+    private void setPortraitView() {
+        PlayerView playerView = findViewById(R.id.recipe_step_fragment_exoplayer_view);
+        ViewGroup.LayoutParams params = playerView.getLayoutParams();
+
+        //https://androidactivity.wordpress.com/2011/10/04/use-dip-sp-metrics-programmatically/
+        params.height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 400, getResources().getDisplayMetrics());
+
+
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+
+
+        if(getActionBar() != null){
+            getActionBar().show();
+        }
     }
 
     private void setLandscapeView() {
@@ -120,8 +130,8 @@ public class DetailActivity extends AppCompatActivity implements ExoPlayer.Event
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
         params.height = ViewGroup.LayoutParams.MATCH_PARENT;
 
-        if(getSupportActionBar() != null){
-            getSupportActionBar().hide();
+        if(getActionBar() != null){
+            getActionBar().hide();
         }
     }
 
@@ -159,7 +169,7 @@ public class DetailActivity extends AppCompatActivity implements ExoPlayer.Event
 
 
     private void setupMediaSession() {
-        mMediaSession = new MediaSessionCompat(this, DetailActivity.class.getSimpleName());
+        mMediaSession = new MediaSessionCompat(this, DetailFragment.class.getSimpleName());
 
         //binds what actions to handle
         mMediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
