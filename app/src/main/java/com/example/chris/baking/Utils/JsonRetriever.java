@@ -1,4 +1,4 @@
-package com.example.chris.baking;
+package com.example.chris.baking.Utils;
 
 import java.io.IOException;
 import java.net.URL;

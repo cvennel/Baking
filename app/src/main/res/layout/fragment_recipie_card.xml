@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UI.RecipeCardFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".RecipeCardFragment"
-    android:orientation="vertical">
-
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    android:id="@+id/card_view">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recipe_image"
-        />
+        android:id="@+id/recipe_image"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
+
         android:id="@+id/recipe_title"
-        android:background="@color/colorLightGray"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:textSize="20sp"
         android:layout_marginTop="20dp"/>
         <!--TODO change to resource file-->
+</android.support.v7.widget.CardView>
 
-
-</RelativeLayout>

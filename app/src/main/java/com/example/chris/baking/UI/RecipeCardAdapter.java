@@ -1,4 +1,4 @@
-package com.example.chris.baking;
+package com.example.chris.baking.UI;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

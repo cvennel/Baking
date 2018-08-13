@@ -1,6 +1,26 @@
 <resources>
     <string name="app_name">Baking</string>
 
+    <string name="ingredients_heading">Ingredients:</string>
+    <string name="next">Next Step</string>
+    <string name="previous">Previous Step</string>
+
+    <string name="error_geting_position">Error initializing recipe view</string>
+    <string name="error_at_first_step">No previous steps to show</string>
+    <string name="error_at_last_step">No further steps found</string>
+
+    <!--Keys-->
+    <string name="recipe_step_key">recipe_step</string>
+    <string name="recipe_id_key">recipe_step_id</string>
+
+
+    <string name="appwidget_title">Baking Recipes</string>
+    <string name="appwidget_text">Your most recently selected recipe ingredients will display here.</string>
+
+    <string name="json_url">https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

@@ -1,9 +1,7 @@
-package com.example.chris.baking;
+package com.example.chris.baking.DataTypes;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.net.URL;
 
 public class RecipeStep implements Parcelable{
     private int id;

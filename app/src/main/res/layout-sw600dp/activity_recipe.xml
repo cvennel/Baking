@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:id="@+id/recipe_activity_main_scroll_view"
+        tools:context=".UI.RecipeActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Heading-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ingredients_heading"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:layout_marginBottom="8dp"/>
+
+            <!--Ingredients-->
+            <TextView
+                android:id="@+id/ingredients_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingStart="8dp"/>
+
+            <!--Recipe Steps-->
+            <LinearLayout
+                android:id="@+id/recipe_step_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+
+            <!--final divider after recipe steps-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:id="@+id/tablet_divider"
+        android:background="@android:color/darker_gray" />
+
+
+    <FrameLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/detail_fragment_container"
+        />
+
+</LinearLayout>

@@ -1,5 +1,6 @@
-package com.example.chris.baking;
+package com.example.chris.baking.Utils;
 
+import com.example.chris.baking.DataTypes.Recipe;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;

@@ -1,4 +1,4 @@
-package com.example.chris.baking;
+package com.example.chris.baking.UI;
 
 import android.support.v4.media.session.MediaSessionCompat;
 

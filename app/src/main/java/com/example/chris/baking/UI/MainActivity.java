@@ -1,9 +1,12 @@
-package com.example.chris.baking;
+package com.example.chris.baking.UI;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.R;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
         try {
-            mRecipeLocation = new URL("https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json");
+            mRecipeLocation = new URL(getString(R.string.json_url));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
                     mAdapter.setRecipeList((List<Recipe>) result);
                     mAdapter.notifyDataSetChanged();
+
+
                 }
             };
 

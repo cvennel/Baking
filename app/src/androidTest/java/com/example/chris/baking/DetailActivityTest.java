@@ -9,7 +9,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.example.chris.baking.DataTypes.Recipe;
-import com.example.chris.baking.UI.DetailFragment;
+import com.example.chris.baking.UI.DetailActivity;
 
 import org.hamcrest.Matchers;
 import org.junit.Rule;
@@ -22,20 +22,20 @@ import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 @RunWith(AndroidJUnit4.class)
-public class DetailFragmentTest {
+public class DetailActivityTest {
 
     private Recipe SAMPLE_RECIPE = SampleRecipe.setupSampleRecipe();
 
     @Rule
-    public ActivityTestRule<DetailFragment> mActivityTestRule =
-            new ActivityTestRule<DetailFragment>(DetailFragment.class){
+    public ActivityTestRule<DetailActivity> mActivityTestRule =
+            new ActivityTestRule<DetailActivity>(DetailActivity.class){
 
         @Override
         protected Intent getActivityIntent() {
             Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
-            Intent result = new Intent(context, DetailFragment.class);
-            result.putExtra(DetailFragment.EXTRA_RECIPE, SAMPLE_RECIPE);
-            result.putExtra(DetailFragment.EXTRA_STEP, 0);
+            Intent result = new Intent(context, DetailActivity.class);
+            result.putExtra(DetailActivity.EXTRA_RECIPE, SAMPLE_RECIPE);
+            result.putExtra(DetailActivity.EXTRA_STEP, 0);
             return result;
         }
     };

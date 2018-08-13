@@ -1,6 +1,10 @@
-package com.example.chris.baking;
+package com.example.chris.baking.UI;
 
 import android.os.AsyncTask;
+
+import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.Utils.JsonParser;
+import com.example.chris.baking.Utils.NetworkUtils;
 
 import java.io.IOException;
 import java.net.URL;

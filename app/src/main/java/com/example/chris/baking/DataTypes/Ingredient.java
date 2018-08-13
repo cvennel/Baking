@@ -1,4 +1,4 @@
-package com.example.chris.baking;
+package com.example.chris.baking.DataTypes;
 
 import android.os.Parcel;
 import android.os.Parcelable;

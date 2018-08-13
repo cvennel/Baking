@@ -1,7 +1,5 @@
-package com.example.chris.baking;
+package com.example.chris.baking.UI;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,9 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.R;
 import com.squareup.picasso.Picasso;
-
-import java.nio.file.Path;
 
 public class RecipeCardFragment extends Fragment {
 
