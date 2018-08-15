@@ -1,5 +1,6 @@
 package com.example.chris.baking.UI;
 
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,9 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import com.example.chris.baking.DataTypes.Recipe;
 import com.example.chris.baking.R;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,11 +54,34 @@ public class MainActivity extends AppCompatActivity {
                     mAdapter.setRecipeList((List<Recipe>) result);
                     mAdapter.notifyDataSetChanged();
 
-
                 }
             };
 
-            new AsyncJSONRetriever(mRecipeLocation, listener).execute();
+            BufferedReader reader = null;
+            StringBuilder builder = new StringBuilder();
+            try{
+                reader = new BufferedReader(new InputStreamReader(getAssets().open("JSON.txt")));
+
+
+                String mline;
+                while ((mline = reader.readLine()) != null){
+                    builder.append(mline);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                if (reader != null){
+                    try {
+                        reader.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+
+            new AsyncJSONRetriever(mRecipeLocation, listener, null).execute();
         }
 
 

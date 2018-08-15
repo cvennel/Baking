@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.chris.baking.DataTypes.Recipe;
@@ -27,25 +28,26 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
 
 
 
-    public static class RecipeViewHolder extends RecyclerView.ViewHolder{
+    static class RecipeViewHolder extends RecyclerView.ViewHolder{
 
-
-        public CardView cardView;
-        public TextView textView;
+        CardView cardView;
+        TextView textView;
+        LinearLayout indexCardEffect;
         ImageView imageView;
 
-        public RecipeViewHolder(View itemView){
+        RecipeViewHolder(View itemView){
             super(itemView);
 
             cardView = itemView.findViewById(R.id.card_view);
             textView = itemView.findViewById(R.id.recipe_title);
             imageView = itemView.findViewById(R.id.recipe_image);
-        }
+            indexCardEffect = itemView.findViewById(R.id.index_card_effect);
 
+        }
 
     }
 
-    public RecipeCardAdapter(Context context, Activity activity){
+    RecipeCardAdapter(Context context, Activity activity){
 //        mRecipeList = recipeList;
         mContext = context;
         mActivity = activity;
@@ -64,7 +66,8 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
     @Override
     public void onBindViewHolder(@NonNull final RecipeViewHolder viewHolder, final int i) {
 
-        Recipe currentRecipe = mRecipeList.get(i);
+
+        Recipe currentRecipe = mRecipeList.get(viewHolder.getAdapterPosition());
 
         viewHolder.textView.setText(currentRecipe.getName());
 
@@ -73,18 +76,22 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
         if (imageLocation != null) {
             ImageView imageView = viewHolder.imageView;
             if (imageLocation.equals("")) {
-                imageLocation = "https://images.pexels.com/photos/291767/pexels-photo-291767.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
+//                imageLocation = "https://images.pexels.com/photos/291767/pexels-photo-291767.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
+                imageView.setVisibility(View.GONE);
+                viewHolder.indexCardEffect.setVisibility(View.VISIBLE);
+            }else {
+                imageView.setVisibility(View.VISIBLE);
+                Picasso.with(mContext).load(imageLocation).into(imageView);
+
+                viewHolder.indexCardEffect.setVisibility(View.GONE);
             }
-
-            Picasso.with(mContext).load(imageLocation).into(imageView);
-
 
             viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
                     Intent intent = new Intent(mActivity, RecipeActivity.class);
-                    intent.putExtra(RecipeActivity.EXTRA_RECIPE, mRecipeList.get(i));
+                    intent.putExtra(RecipeActivity.EXTRA_RECIPE, mRecipeList.get(viewHolder.getAdapterPosition()));
 
                     mContext.startActivity(intent);
                 }

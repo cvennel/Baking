@@ -1,30 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UI.RecipeCardFragment"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
-    android:id="@+id/card_view">
-    <ImageView
+    tools:context=".UI.RecipeCardFragment">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recipe_image"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/recipe_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="sample"
+            android:textSize="20sp" />
 
-        android:id="@+id/recipe_title"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"/>
+
         <!--TODO change to resource file-->
+        <ImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
+        <!--index card effect-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/index_card_effect">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_red_light" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp"
+                android:background="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_light" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp"
+                android:background="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_light" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp"
+                android:background="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_light" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp"
+                android:background="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_light" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp"
+                android:background="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_light" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp"
+                android:background="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_light" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp"
+                android:background="@android:color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </android.support.v7.widget.CardView>
 

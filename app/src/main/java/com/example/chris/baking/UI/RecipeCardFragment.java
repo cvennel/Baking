@@ -22,7 +22,7 @@ public class RecipeCardFragment extends Fragment {
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Toast.makeText(getContext(),"You clicked on the " +mRecipe.getName() + " recipe", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "You clicked on the " + mRecipe.getName() + " recipe", Toast.LENGTH_LONG).show();
         }
     };
 
@@ -41,30 +41,33 @@ public class RecipeCardFragment extends Fragment {
 
         rootView.setOnClickListener(listener);
 
-        if(mTitle != null){
+        if (mTitle != null) {
             textView.setText(mTitle);
         }
 
-        if(mImageLocation != null){
+        if (mImageLocation != null) {
             ImageView imageView = rootView.findViewById(R.id.recipe_image);
-            if(mImageLocation.equals("")){
-                mImageLocation = "https://images.pexels.com/photos/291767/pexels-photo-291767.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
+            if (mImageLocation.equals("")) {
+// TODO remove line when found beter idea
+// mImageLocation = "https://images.pexels.com/photos/291767/pexels-photo-291767.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
+                imageView.setVisibility(View.GONE);
+            } else {
+                Picasso.with(getContext()).load(mImageLocation).into(imageView);
             }
-
-            Picasso.with(getContext()).load(mImageLocation).into(imageView);
-
 
         }
         return rootView;
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         mTitle = title;
     }
-    public void setImage(String imageLocation){
+
+    public void setImage(String imageLocation) {
         mImageLocation = imageLocation;
     }
-    public void setmRecipe(Recipe recipe){
+
+    public void setmRecipe(Recipe recipe) {
         mRecipe = recipe;
     }
 }
