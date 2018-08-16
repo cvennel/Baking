@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,28 +17,40 @@ import com.example.chris.baking.R;
 public class RecipeStepFragment extends Fragment {
 
     private RecipeStep mRecipeStep;
-    private int recipeStepID;
+    private int mRecipeStepID;
+    Boolean mIsTwoPane;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_recipe_step, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_recipe_step, container, false);
 
-        if (savedInstanceState != null){
+        if (savedInstanceState != null) {
             mRecipeStep = savedInstanceState.getParcelable(getString(R.string.recipe_step_key));
-            recipeStepID = savedInstanceState.getInt(getString(R.string.recipe_id_key));
+            mRecipeStepID = savedInstanceState.getInt(getString(R.string.recipe_id_key));
+            mIsTwoPane = savedInstanceState.getBoolean(getString(R.string.is_two_pane_key));
         }
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getActivity(),DetailActivity.class);
-                intent.putExtra(DetailActivity.EXTRA_RECIPE, RecipeActivity.SELECTED_RECIPE);
-                intent.putExtra(DetailActivity.EXTRA_STEP,recipeStepID);
+                if (mIsTwoPane) {
+                    FragmentManager manager = getFragmentManager();
 
-                startActivity(intent);
+                    DetailFragment detailFragment = new DetailFragment();
+                    detailFragment.setFragmentRecipeInfo(RecipeActivity.SELECTED_RECIPE, mRecipeStepID);
+
+                    manager.beginTransaction().replace(R.id.detail_fragment_container, detailFragment, "DetailFragment").commit();
+                } else {
+
+                    Intent intent = new Intent(getActivity(), DetailActivity.class);
+                    intent.putExtra(DetailActivity.EXTRA_RECIPE, RecipeActivity.SELECTED_RECIPE);
+                    intent.putExtra(DetailActivity.EXTRA_STEP, mRecipeStepID);
+
+                    startActivity(intent);
+                }
             }
         };
 
@@ -56,16 +69,17 @@ public class RecipeStepFragment extends Fragment {
     }
 
 
-
-    public void setRecipeInfo(RecipeStep recipeStep, int recipeStepNum) {
+    public void setRecipeInfo(RecipeStep recipeStep, int recipeStepNum, Boolean isTwoPane) {
         mRecipeStep = recipeStep;
-        recipeStepID = recipeStepNum;
+        mRecipeStepID = recipeStepNum;
+        mIsTwoPane = isTwoPane;
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(getString(R.string.recipe_step_key), mRecipeStep);
-        outState.putInt(getString(R.string.recipe_id_key), recipeStepID);
+        outState.putInt(getString(R.string.recipe_id_key), mRecipeStepID);
+        outState.putBoolean(getString(R.string.is_two_pane_key), mIsTwoPane);
     }
 }

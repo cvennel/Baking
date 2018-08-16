@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--https://stackoverflow.com/questions/41412289/how-to-include-a-cardview-in-a-home-screen-widget-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-</selector>
+    <item>
+        <shape>
+            <padding android:top="10dp" android:right="10dp" android:bottom="5dp" android:left="10dp" />
+            <solid android:color="@color/transparent" />
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <padding android:top="0dp" android:right="0dp" android:bottom="1dp" android:left="0dp" />
+            <solid android:color="@color/card_shadow_1" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:top="0dp" android:right="0dp" android:bottom="1dp" android:left="0dp" />
+            <solid android:color="@color/card_shadow_2" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    <!-- Background -->
+    <item>
+        <shape >
+            <solid android:color="@color/card_background" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+
+</layer-list>

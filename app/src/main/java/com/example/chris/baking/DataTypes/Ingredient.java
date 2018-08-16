@@ -70,6 +70,11 @@ public class Ingredient implements Parcelable{
 
 
     public static String ingredientToString(Ingredient ingredient){
-        return "\u25CF " + ingredient.quantity + " " + ingredient.measure + " " + ingredient.ingredient + System.lineSeparator();
+        if (ingredient.measure.equals("UNIT")){
+            ingredient.measure = "";
+        } else {
+            ingredient.measure += " ";
+        }
+        return "\u25CF " + ingredient.quantity + " " + ingredient.measure + ingredient.ingredient + System.lineSeparator();
     }
 }

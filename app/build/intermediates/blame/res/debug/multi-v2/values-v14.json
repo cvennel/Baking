@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\chris\\StudioProjects\\Baking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+            "outputFile": "C:\\Users\\cvenn\\Documents\\Android Studio Projects\\Baking App\\Baking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\chris\\StudioProjects\\Baking\\app\\src\\main\\res\\values-v14\\dimens.xml",
+                    "source": "C:\\Users\\cvenn\\Documents\\Android Studio Projects\\Baking App\\Baking\\app\\src\\main\\res\\values-v14\\dimens.xml",
                     "from": {
                         "startLines": "7",
                         "startColumns": "4",

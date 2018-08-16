@@ -53,10 +53,12 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
     public static final String EXTRA_STEP = "extra_step";
 
 
+
     private Recipe mCurrentRecipe;
     private RecipeStep mCurrentRecipeStep;
     private int mCurrentStepNumber;
 
+    private  Boolean mIsTwoPane;
     private ImageView mClipArtImageView;
 
     private MediaSessionCompat mMediaSession;
@@ -69,6 +71,12 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        if (savedInstanceState != null){
+            mCurrentRecipe = savedInstanceState.getParcelable(EXTRA_RECIPE);
+            mCurrentStepNumber = savedInstanceState.getInt(EXTRA_STEP);
+            mCurrentRecipeStep = mCurrentRecipe.getRecipieSteps().get(mCurrentStepNumber);
+        }
 
         mRootView = inflater.inflate(R.layout.fragment_detail,container,false);
 
@@ -100,9 +108,13 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
 
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(EXTRA_RECIPE, mCurrentRecipe);
+        outState.putInt(EXTRA_STEP, mCurrentStepNumber);
 
-
-
+    }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {

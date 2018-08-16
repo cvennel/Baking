@@ -12,6 +12,7 @@
     <!--Keys-->
     <string name="recipe_step_key">recipe_step</string>
     <string name="recipe_id_key">recipe_step_id</string>
+    <string name="is_two_pane_key">is_two_pane</string>
 
 
     <string name="appwidget_title">Baking Recipes</string>

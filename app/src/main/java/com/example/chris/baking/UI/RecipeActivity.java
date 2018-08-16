@@ -28,8 +28,14 @@ public class RecipeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe);
 
 
-        SELECTED_RECIPE.setRecipe((Recipe) getIntent().getParcelableExtra(EXTRA_RECIPE));
-
+        if (savedInstanceState != null) {
+            savedInstanceState.getParcelable(EXTRA_RECIPE);
+        } else {
+            SELECTED_RECIPE.setRecipe((Recipe) getIntent().getParcelableExtra(EXTRA_RECIPE));
+        }
+        if (findViewById(R.id.tablet_divider) != null){
+            mTwoPaneView = true;
+        }
 
 //        BakingAppWidget
 //        BakingAppWidget.setIngredientList(SELECTED_RECIPE.getIngredients());
@@ -59,25 +65,26 @@ public class RecipeActivity extends AppCompatActivity {
 
             if (fragmentManager.findFragmentByTag(tag) == null) {
                 RecipeStepFragment fragment = new RecipeStepFragment();
-                fragment.setRecipeInfo(SELECTED_RECIPE.getRecipieSteps().get(i), i);
+                fragment.setRecipeInfo(SELECTED_RECIPE.getRecipieSteps().get(i), i, mTwoPaneView);
                 transaction.add(R.id.recipe_step_fragment_container, fragment, tag);
             }
         }
 
-        if (findViewById(R.id.tablet_divider) != null){
+        if (findViewById(R.id.tablet_divider) != null && savedInstanceState == null) {
             mTwoPaneView = true;
 
             DetailFragment detailFragment = new DetailFragment();
             detailFragment.setFragmentRecipeInfo(SELECTED_RECIPE, 0);
 
-            transaction.add(R.id.detail_fragment_container,detailFragment,"DetailFragment").commit();
-
+            transaction.add(R.id.detail_fragment_container, detailFragment, "DetailFragment");
         }
 
         transaction.commit();
-
-
     }
 
-
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(EXTRA_RECIPE, SELECTED_RECIPE);
+    }
 }
