@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
 import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.Database.RecipeDatabase;
 import com.example.chris.baking.Utils.JsonParser;
 import com.example.chris.baking.Utils.NetworkUtils;
 
@@ -45,6 +46,9 @@ public class AsyncJSONRetriever extends AsyncTask<Void,Void,String> {
 
 
             recipies = JsonParser.parseRecipies(jsonResults);
+
+
+
 
 
             return jsonResults;

@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Wed Aug 15 18:40:18 PDT 2018
-0.baseType=DIRECTORY
-0.base=C\:\\Users\\cvenn\\Documents\\Android Studio Projects\\Baking App\\Baking\\app\\build\\intermediates\\assets\\debug
-0.path=JSON.txt
-0.set=ASSET
-count=1

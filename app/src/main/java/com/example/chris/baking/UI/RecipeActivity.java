@@ -8,10 +8,12 @@ import android.widget.TextView;
 
 import com.example.chris.baking.DataTypes.Ingredient;
 import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.DataTypes.RecipeStep;
 import com.example.chris.baking.R;
 import com.example.chris.baking.Widget.UpdateWidgetService;
 
 import java.io.StringWriter;
+import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity {
 
@@ -60,12 +62,14 @@ public class RecipeActivity extends AppCompatActivity {
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-        for (int i = 0; i < SELECTED_RECIPE.getRecipieSteps().size(); i++) {
+
+
+        for (int i = 0; i < SELECTED_RECIPE.getSteps().size(); i++) {
             String tag = "id_" + i;
 
             if (fragmentManager.findFragmentByTag(tag) == null) {
                 RecipeStepFragment fragment = new RecipeStepFragment();
-                fragment.setRecipeInfo(SELECTED_RECIPE.getRecipieSteps().get(i), i, mTwoPaneView);
+                fragment.setRecipeInfo(SELECTED_RECIPE.getSteps().get(i), i, mTwoPaneView);
                 transaction.add(R.id.recipe_step_fragment_container, fragment, tag);
             }
         }
@@ -74,7 +78,7 @@ public class RecipeActivity extends AppCompatActivity {
             mTwoPaneView = true;
 
             DetailFragment detailFragment = new DetailFragment();
-            detailFragment.setFragmentRecipeInfo(SELECTED_RECIPE, 0);
+            detailFragment.setFragmentRecipeInfo(SELECTED_RECIPE, 0, mTwoPaneView);
 
             transaction.add(R.id.detail_fragment_container, detailFragment, "DetailFragment");
         }

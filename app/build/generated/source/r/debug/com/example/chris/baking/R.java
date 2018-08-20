@@ -1905,7 +1905,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>
@@ -3369,23 +3369,25 @@ public final class R {
     public static final int exo_notification_small_icon=0x7f060073;
     public static final int exo_notification_stop=0x7f060074;
     public static final int ic_chevron_right_black_24dp=0x7f060075;
-    public static final int ic_launcher_background=0x7f060076;
-    public static final int ic_launcher_foreground=0x7f060077;
-    public static final int ic_play_movie=0x7f060078;
-    public static final int notification_action_background=0x7f060079;
-    public static final int notification_bg=0x7f06007a;
-    public static final int notification_bg_low=0x7f06007b;
-    public static final int notification_bg_low_normal=0x7f06007c;
-    public static final int notification_bg_low_pressed=0x7f06007d;
-    public static final int notification_bg_normal=0x7f06007e;
-    public static final int notification_bg_normal_pressed=0x7f06007f;
-    public static final int notification_icon_background=0x7f060080;
-    public static final int notification_template_icon_bg=0x7f060081;
-    public static final int notification_template_icon_low_bg=0x7f060082;
-    public static final int notification_tile_bg=0x7f060083;
-    public static final int notify_panel_notification_icon_bg=0x7f060084;
-    public static final int tooltip_frame_dark=0x7f060085;
-    public static final int tooltip_frame_light=0x7f060086;
+    public static final int ic_fullscreen_collapse=0x7f060076;
+    public static final int ic_fullscreen_expand=0x7f060077;
+    public static final int ic_launcher_background=0x7f060078;
+    public static final int ic_launcher_foreground=0x7f060079;
+    public static final int ic_play_movie=0x7f06007a;
+    public static final int notification_action_background=0x7f06007b;
+    public static final int notification_bg=0x7f06007c;
+    public static final int notification_bg_low=0x7f06007d;
+    public static final int notification_bg_low_normal=0x7f06007e;
+    public static final int notification_bg_low_pressed=0x7f06007f;
+    public static final int notification_bg_normal=0x7f060080;
+    public static final int notification_bg_normal_pressed=0x7f060081;
+    public static final int notification_icon_background=0x7f060082;
+    public static final int notification_template_icon_bg=0x7f060083;
+    public static final int notification_template_icon_low_bg=0x7f060084;
+    public static final int notification_tile_bg=0x7f060085;
+    public static final int notify_panel_notification_icon_bg=0x7f060086;
+    public static final int tooltip_frame_dark=0x7f060087;
+    public static final int tooltip_frame_light=0x7f060088;
   }
   public static final class id {
     public static final int ALT=0x7f070000;
@@ -3466,130 +3468,133 @@ public final class R {
     public static final int exo_duration=0x7f07004b;
     public static final int exo_error_message=0x7f07004c;
     public static final int exo_ffwd=0x7f07004d;
-    public static final int exo_next=0x7f07004e;
-    public static final int exo_overlay=0x7f07004f;
-    public static final int exo_pause=0x7f070050;
-    public static final int exo_play=0x7f070051;
-    public static final int exo_position=0x7f070052;
-    public static final int exo_prev=0x7f070053;
-    public static final int exo_progress=0x7f070054;
-    public static final int exo_repeat_toggle=0x7f070055;
-    public static final int exo_rew=0x7f070056;
-    public static final int exo_shuffle=0x7f070057;
-    public static final int exo_shutter=0x7f070058;
-    public static final int exo_subtitles=0x7f070059;
-    public static final int exo_track_selection_view=0x7f07005a;
-    public static final int expand_activities_button=0x7f07005b;
-    public static final int expanded_menu=0x7f07005c;
-    public static final int fill=0x7f07005d;
-    public static final int fill_horizontal=0x7f07005e;
-    public static final int fill_vertical=0x7f07005f;
-    public static final int fit=0x7f070060;
-    public static final int fixed_height=0x7f070061;
-    public static final int fixed_width=0x7f070062;
-    public static final int forever=0x7f070063;
-    public static final int gone=0x7f070064;
-    public static final int group_divider=0x7f070065;
-    public static final int home=0x7f070066;
-    public static final int homeAsUp=0x7f070067;
-    public static final int icon=0x7f070068;
-    public static final int icon_group=0x7f070069;
-    public static final int ifRoom=0x7f07006a;
-    public static final int image=0x7f07006b;
-    public static final int index_card_effect=0x7f07006c;
-    public static final int info=0x7f07006d;
-    public static final int ingredients_tv=0x7f07006e;
-    public static final int invisible=0x7f07006f;
-    public static final int italic=0x7f070070;
-    public static final int item_touch_helper_previous_elevation=0x7f070071;
-    public static final int left=0x7f070072;
-    public static final int line1=0x7f070073;
-    public static final int line3=0x7f070074;
-    public static final int listMode=0x7f070075;
-    public static final int list_item=0x7f070076;
-    public static final int main_recycler_view=0x7f070077;
-    public static final int media_actions=0x7f070078;
-    public static final int message=0x7f070079;
-    public static final int middle=0x7f07007a;
-    public static final int multiply=0x7f07007b;
-    public static final int never=0x7f07007c;
-    public static final int none=0x7f07007d;
-    public static final int normal=0x7f07007e;
-    public static final int notification_background=0x7f07007f;
-    public static final int notification_main_column=0x7f070080;
-    public static final int notification_main_column_container=0x7f070081;
-    public static final int one=0x7f070082;
-    public static final int packed=0x7f070083;
-    public static final int parent=0x7f070084;
-    public static final int parentPanel=0x7f070085;
-    public static final int percent=0x7f070086;
-    public static final int progress_circular=0x7f070087;
-    public static final int progress_horizontal=0x7f070088;
-    public static final int radio=0x7f070089;
-    public static final int recipe_activity_main_scroll_view=0x7f07008a;
-    public static final int recipe_image=0x7f07008b;
-    public static final int recipe_step_fragment_container=0x7f07008c;
-    public static final int recipe_step_fragment_exoplayer_view=0x7f07008d;
-    public static final int recipe_step_fragment_tv=0x7f07008e;
-    public static final int recipe_title=0x7f07008f;
-    public static final int right=0x7f070090;
-    public static final int right_icon=0x7f070091;
-    public static final int right_side=0x7f070092;
-    public static final int screen=0x7f070093;
-    public static final int scrollIndicatorDown=0x7f070094;
-    public static final int scrollIndicatorUp=0x7f070095;
-    public static final int scrollView=0x7f070096;
-    public static final int search_badge=0x7f070097;
-    public static final int search_bar=0x7f070098;
-    public static final int search_button=0x7f070099;
-    public static final int search_close_btn=0x7f07009a;
-    public static final int search_edit_frame=0x7f07009b;
-    public static final int search_go_btn=0x7f07009c;
-    public static final int search_mag_icon=0x7f07009d;
-    public static final int search_plate=0x7f07009e;
-    public static final int search_src_text=0x7f07009f;
-    public static final int search_voice_btn=0x7f0700a0;
-    public static final int select_dialog_listview=0x7f0700a1;
-    public static final int shortcut=0x7f0700a2;
-    public static final int showCustom=0x7f0700a3;
-    public static final int showHome=0x7f0700a4;
-    public static final int showTitle=0x7f0700a5;
-    public static final int spacer=0x7f0700a6;
-    public static final int split_action_bar=0x7f0700a7;
-    public static final int spread=0x7f0700a8;
-    public static final int spread_inside=0x7f0700a9;
-    public static final int src_atop=0x7f0700aa;
-    public static final int src_in=0x7f0700ab;
-    public static final int src_over=0x7f0700ac;
-    public static final int standard=0x7f0700ad;
-    public static final int start=0x7f0700ae;
-    public static final int status_bar_latest_event_content=0x7f0700af;
-    public static final int submenuarrow=0x7f0700b0;
-    public static final int submit_area=0x7f0700b1;
-    public static final int surface_view=0x7f0700b2;
-    public static final int tabMode=0x7f0700b3;
-    public static final int tablet_divider=0x7f0700b4;
-    public static final int tag_transition_group=0x7f0700b5;
-    public static final int tag_unhandled_key_event_manager=0x7f0700b6;
-    public static final int tag_unhandled_key_listeners=0x7f0700b7;
-    public static final int text=0x7f0700b8;
-    public static final int text2=0x7f0700b9;
-    public static final int textSpacerNoButtons=0x7f0700ba;
-    public static final int textSpacerNoTitle=0x7f0700bb;
-    public static final int texture_view=0x7f0700bc;
-    public static final int time=0x7f0700bd;
-    public static final int title=0x7f0700be;
-    public static final int titleDividerNoCustom=0x7f0700bf;
-    public static final int title_template=0x7f0700c0;
-    public static final int top=0x7f0700c1;
-    public static final int topPanel=0x7f0700c2;
-    public static final int uniform=0x7f0700c3;
-    public static final int up=0x7f0700c4;
-    public static final int useLogo=0x7f0700c5;
-    public static final int withText=0x7f0700c6;
-    public static final int wrap=0x7f0700c7;
-    public static final int wrap_content=0x7f0700c8;
-    public static final int zoom=0x7f0700c9;
+    public static final int exo_fullscreen_button=0x7f07004e;
+    public static final int exo_fullscreen_icon=0x7f07004f;
+    public static final int exo_next=0x7f070050;
+    public static final int exo_overlay=0x7f070051;
+    public static final int exo_pause=0x7f070052;
+    public static final int exo_play=0x7f070053;
+    public static final int exo_player_holder=0x7f070054;
+    public static final int exo_position=0x7f070055;
+    public static final int exo_prev=0x7f070056;
+    public static final int exo_progress=0x7f070057;
+    public static final int exo_repeat_toggle=0x7f070058;
+    public static final int exo_rew=0x7f070059;
+    public static final int exo_shuffle=0x7f07005a;
+    public static final int exo_shutter=0x7f07005b;
+    public static final int exo_subtitles=0x7f07005c;
+    public static final int exo_track_selection_view=0x7f07005d;
+    public static final int expand_activities_button=0x7f07005e;
+    public static final int expanded_menu=0x7f07005f;
+    public static final int fill=0x7f070060;
+    public static final int fill_horizontal=0x7f070061;
+    public static final int fill_vertical=0x7f070062;
+    public static final int fit=0x7f070063;
+    public static final int fixed_height=0x7f070064;
+    public static final int fixed_width=0x7f070065;
+    public static final int forever=0x7f070066;
+    public static final int gone=0x7f070067;
+    public static final int group_divider=0x7f070068;
+    public static final int home=0x7f070069;
+    public static final int homeAsUp=0x7f07006a;
+    public static final int icon=0x7f07006b;
+    public static final int icon_group=0x7f07006c;
+    public static final int ifRoom=0x7f07006d;
+    public static final int image=0x7f07006e;
+    public static final int index_card_effect=0x7f07006f;
+    public static final int info=0x7f070070;
+    public static final int ingredients_tv=0x7f070071;
+    public static final int invisible=0x7f070072;
+    public static final int italic=0x7f070073;
+    public static final int item_touch_helper_previous_elevation=0x7f070074;
+    public static final int left=0x7f070075;
+    public static final int line1=0x7f070076;
+    public static final int line3=0x7f070077;
+    public static final int listMode=0x7f070078;
+    public static final int list_item=0x7f070079;
+    public static final int main_recycler_view=0x7f07007a;
+    public static final int media_actions=0x7f07007b;
+    public static final int message=0x7f07007c;
+    public static final int middle=0x7f07007d;
+    public static final int multiply=0x7f07007e;
+    public static final int never=0x7f07007f;
+    public static final int none=0x7f070080;
+    public static final int normal=0x7f070081;
+    public static final int notification_background=0x7f070082;
+    public static final int notification_main_column=0x7f070083;
+    public static final int notification_main_column_container=0x7f070084;
+    public static final int one=0x7f070085;
+    public static final int packed=0x7f070086;
+    public static final int parent=0x7f070087;
+    public static final int parentPanel=0x7f070088;
+    public static final int percent=0x7f070089;
+    public static final int progress_circular=0x7f07008a;
+    public static final int progress_horizontal=0x7f07008b;
+    public static final int radio=0x7f07008c;
+    public static final int recipe_activity_main_scroll_view=0x7f07008d;
+    public static final int recipe_image=0x7f07008e;
+    public static final int recipe_step_fragment_container=0x7f07008f;
+    public static final int recipe_step_fragment_exoplayer_view=0x7f070090;
+    public static final int recipe_step_fragment_tv=0x7f070091;
+    public static final int recipe_title=0x7f070092;
+    public static final int right=0x7f070093;
+    public static final int right_icon=0x7f070094;
+    public static final int right_side=0x7f070095;
+    public static final int screen=0x7f070096;
+    public static final int scrollIndicatorDown=0x7f070097;
+    public static final int scrollIndicatorUp=0x7f070098;
+    public static final int scrollView=0x7f070099;
+    public static final int search_badge=0x7f07009a;
+    public static final int search_bar=0x7f07009b;
+    public static final int search_button=0x7f07009c;
+    public static final int search_close_btn=0x7f07009d;
+    public static final int search_edit_frame=0x7f07009e;
+    public static final int search_go_btn=0x7f07009f;
+    public static final int search_mag_icon=0x7f0700a0;
+    public static final int search_plate=0x7f0700a1;
+    public static final int search_src_text=0x7f0700a2;
+    public static final int search_voice_btn=0x7f0700a3;
+    public static final int select_dialog_listview=0x7f0700a4;
+    public static final int shortcut=0x7f0700a5;
+    public static final int showCustom=0x7f0700a6;
+    public static final int showHome=0x7f0700a7;
+    public static final int showTitle=0x7f0700a8;
+    public static final int spacer=0x7f0700a9;
+    public static final int split_action_bar=0x7f0700aa;
+    public static final int spread=0x7f0700ab;
+    public static final int spread_inside=0x7f0700ac;
+    public static final int src_atop=0x7f0700ad;
+    public static final int src_in=0x7f0700ae;
+    public static final int src_over=0x7f0700af;
+    public static final int standard=0x7f0700b0;
+    public static final int start=0x7f0700b1;
+    public static final int status_bar_latest_event_content=0x7f0700b2;
+    public static final int submenuarrow=0x7f0700b3;
+    public static final int submit_area=0x7f0700b4;
+    public static final int surface_view=0x7f0700b5;
+    public static final int tabMode=0x7f0700b6;
+    public static final int tablet_divider=0x7f0700b7;
+    public static final int tag_transition_group=0x7f0700b8;
+    public static final int tag_unhandled_key_event_manager=0x7f0700b9;
+    public static final int tag_unhandled_key_listeners=0x7f0700ba;
+    public static final int text=0x7f0700bb;
+    public static final int text2=0x7f0700bc;
+    public static final int textSpacerNoButtons=0x7f0700bd;
+    public static final int textSpacerNoTitle=0x7f0700be;
+    public static final int texture_view=0x7f0700bf;
+    public static final int time=0x7f0700c0;
+    public static final int title=0x7f0700c1;
+    public static final int titleDividerNoCustom=0x7f0700c2;
+    public static final int title_template=0x7f0700c3;
+    public static final int top=0x7f0700c4;
+    public static final int topPanel=0x7f0700c5;
+    public static final int uniform=0x7f0700c6;
+    public static final int up=0x7f0700c7;
+    public static final int useLogo=0x7f0700c8;
+    public static final int withText=0x7f0700c9;
+    public static final int wrap=0x7f0700ca;
+    public static final int wrap_content=0x7f0700cb;
+    public static final int zoom=0x7f0700cc;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f080000;
@@ -3708,51 +3713,52 @@ public final class R {
     public static final int app_name=0x7f0b0027;
     public static final int appwidget_text=0x7f0b0028;
     public static final int appwidget_title=0x7f0b0029;
-    public static final int error_at_first_step=0x7f0b002a;
-    public static final int error_at_last_step=0x7f0b002b;
-    public static final int error_geting_position=0x7f0b002c;
-    public static final int exo_controls_fastforward_description=0x7f0b002d;
-    public static final int exo_controls_fullscreen_description=0x7f0b002e;
-    public static final int exo_controls_next_description=0x7f0b002f;
-    public static final int exo_controls_pause_description=0x7f0b0030;
-    public static final int exo_controls_play_description=0x7f0b0031;
-    public static final int exo_controls_previous_description=0x7f0b0032;
-    public static final int exo_controls_repeat_all_description=0x7f0b0033;
-    public static final int exo_controls_repeat_off_description=0x7f0b0034;
-    public static final int exo_controls_repeat_one_description=0x7f0b0035;
-    public static final int exo_controls_rewind_description=0x7f0b0036;
-    public static final int exo_controls_shuffle_description=0x7f0b0037;
-    public static final int exo_controls_stop_description=0x7f0b0038;
-    public static final int exo_download_completed=0x7f0b0039;
-    public static final int exo_download_description=0x7f0b003a;
-    public static final int exo_download_downloading=0x7f0b003b;
-    public static final int exo_download_failed=0x7f0b003c;
-    public static final int exo_download_notification_channel_name=0x7f0b003d;
-    public static final int exo_download_removing=0x7f0b003e;
-    public static final int exo_item_list=0x7f0b003f;
-    public static final int exo_track_bitrate=0x7f0b0040;
-    public static final int exo_track_mono=0x7f0b0041;
-    public static final int exo_track_resolution=0x7f0b0042;
-    public static final int exo_track_selection_auto=0x7f0b0043;
-    public static final int exo_track_selection_none=0x7f0b0044;
-    public static final int exo_track_selection_title_audio=0x7f0b0045;
-    public static final int exo_track_selection_title_text=0x7f0b0046;
-    public static final int exo_track_selection_title_video=0x7f0b0047;
-    public static final int exo_track_stereo=0x7f0b0048;
-    public static final int exo_track_surround=0x7f0b0049;
-    public static final int exo_track_surround_5_point_1=0x7f0b004a;
-    public static final int exo_track_surround_7_point_1=0x7f0b004b;
-    public static final int exo_track_unknown=0x7f0b004c;
-    public static final int hello_blank_fragment=0x7f0b004d;
-    public static final int ingredients_heading=0x7f0b004e;
-    public static final int is_two_pane_key=0x7f0b004f;
-    public static final int json_url=0x7f0b0050;
-    public static final int next=0x7f0b0051;
-    public static final int previous=0x7f0b0052;
-    public static final int recipe_id_key=0x7f0b0053;
-    public static final int recipe_step_key=0x7f0b0054;
-    public static final int search_menu_title=0x7f0b0055;
-    public static final int status_bar_notification_info_overflow=0x7f0b0056;
+    public static final int date_last_updated_key=0x7f0b002a;
+    public static final int error_at_first_step=0x7f0b002b;
+    public static final int error_at_last_step=0x7f0b002c;
+    public static final int error_geting_position=0x7f0b002d;
+    public static final int error_network=0x7f0b002e;
+    public static final int exo_controls_fastforward_description=0x7f0b002f;
+    public static final int exo_controls_fullscreen_description=0x7f0b0030;
+    public static final int exo_controls_next_description=0x7f0b0031;
+    public static final int exo_controls_pause_description=0x7f0b0032;
+    public static final int exo_controls_play_description=0x7f0b0033;
+    public static final int exo_controls_previous_description=0x7f0b0034;
+    public static final int exo_controls_repeat_all_description=0x7f0b0035;
+    public static final int exo_controls_repeat_off_description=0x7f0b0036;
+    public static final int exo_controls_repeat_one_description=0x7f0b0037;
+    public static final int exo_controls_rewind_description=0x7f0b0038;
+    public static final int exo_controls_shuffle_description=0x7f0b0039;
+    public static final int exo_controls_stop_description=0x7f0b003a;
+    public static final int exo_download_completed=0x7f0b003b;
+    public static final int exo_download_description=0x7f0b003c;
+    public static final int exo_download_downloading=0x7f0b003d;
+    public static final int exo_download_failed=0x7f0b003e;
+    public static final int exo_download_notification_channel_name=0x7f0b003f;
+    public static final int exo_download_removing=0x7f0b0040;
+    public static final int exo_item_list=0x7f0b0041;
+    public static final int exo_track_bitrate=0x7f0b0042;
+    public static final int exo_track_mono=0x7f0b0043;
+    public static final int exo_track_resolution=0x7f0b0044;
+    public static final int exo_track_selection_auto=0x7f0b0045;
+    public static final int exo_track_selection_none=0x7f0b0046;
+    public static final int exo_track_selection_title_audio=0x7f0b0047;
+    public static final int exo_track_selection_title_text=0x7f0b0048;
+    public static final int exo_track_selection_title_video=0x7f0b0049;
+    public static final int exo_track_stereo=0x7f0b004a;
+    public static final int exo_track_surround=0x7f0b004b;
+    public static final int exo_track_surround_5_point_1=0x7f0b004c;
+    public static final int exo_track_surround_7_point_1=0x7f0b004d;
+    public static final int exo_track_unknown=0x7f0b004e;
+    public static final int ingredients_heading=0x7f0b004f;
+    public static final int is_two_pane_key=0x7f0b0050;
+    public static final int json_url=0x7f0b0051;
+    public static final int next=0x7f0b0052;
+    public static final int previous=0x7f0b0053;
+    public static final int recipe_id_key=0x7f0b0054;
+    public static final int recipe_step_key=0x7f0b0055;
+    public static final int search_menu_title=0x7f0b0056;
+    public static final int status_bar_notification_info_overflow=0x7f0b0057;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0c0000;
@@ -4907,6 +4913,195 @@ public final class R {
      * @attr name com.example.chris.baking:singleChoiceItemLayout
      */
     public static final int AlertDialog_singleChoiceItemLayout=7;
+    /**
+     * Attributes that can be used with a AnimatedStateListDrawableCompat.
+     * <p>Includes the following attributes:</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Attribute</th><th>Description</th></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableCompat_android_dither android:dither}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableCompat_android_visible android:visible}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableCompat_android_variablePadding android:variablePadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableCompat_android_constantSize android:constantSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableCompat_android_enterFadeDuration android:enterFadeDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableCompat_android_exitFadeDuration android:exitFadeDuration}</code></td><td></td></tr>
+     * </table>
+     * @see #AnimatedStateListDrawableCompat_android_dither
+     * @see #AnimatedStateListDrawableCompat_android_visible
+     * @see #AnimatedStateListDrawableCompat_android_variablePadding
+     * @see #AnimatedStateListDrawableCompat_android_constantSize
+     * @see #AnimatedStateListDrawableCompat_android_enterFadeDuration
+     * @see #AnimatedStateListDrawableCompat_android_exitFadeDuration
+     */
+    public static final int[] AnimatedStateListDrawableCompat={
+        0x0101011c, 0x01010194, 0x01010195, 0x01010196, 
+        0x0101030c, 0x0101030d
+      };
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#dither}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableCompat} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:dither
+     */
+    public static final int AnimatedStateListDrawableCompat_android_dither=0;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#visible}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableCompat} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:visible
+     */
+    public static final int AnimatedStateListDrawableCompat_android_visible=1;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#variablePadding}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableCompat} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:variablePadding
+     */
+    public static final int AnimatedStateListDrawableCompat_android_variablePadding=2;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#constantSize}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableCompat} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:constantSize
+     */
+    public static final int AnimatedStateListDrawableCompat_android_constantSize=3;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#enterFadeDuration}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableCompat} array.
+     *
+     * <p>May be an integer value, such as "<code>100</code>".
+     *
+     * @attr name android:enterFadeDuration
+     */
+    public static final int AnimatedStateListDrawableCompat_android_enterFadeDuration=4;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#exitFadeDuration}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableCompat} array.
+     *
+     * <p>May be an integer value, such as "<code>100</code>".
+     *
+     * @attr name android:exitFadeDuration
+     */
+    public static final int AnimatedStateListDrawableCompat_android_exitFadeDuration=5;
+    /**
+     * Attributes that can be used with a AnimatedStateListDrawableItem.
+     * <p>Includes the following attributes:</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Attribute</th><th>Description</th></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableItem_android_id android:id}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableItem_android_drawable android:drawable}</code></td><td></td></tr>
+     * </table>
+     * @see #AnimatedStateListDrawableItem_android_id
+     * @see #AnimatedStateListDrawableItem_android_drawable
+     */
+    public static final int[] AnimatedStateListDrawableItem={
+        0x010100d0, 0x01010199
+      };
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#id}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableItem} array.
+     *
+     * <p>May be a reference to another resource, in the form
+     * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
+     * attribute in the form
+     * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
+     *
+     * @attr name android:id
+     */
+    public static final int AnimatedStateListDrawableItem_android_id=0;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#drawable}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableItem} array.
+     *
+     * <p>May be a reference to another resource, in the form
+     * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
+     * attribute in the form
+     * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
+     *
+     * @attr name android:drawable
+     */
+    public static final int AnimatedStateListDrawableItem_android_drawable=1;
+    /**
+     * Attributes that can be used with a AnimatedStateListDrawableTransition.
+     * <p>Includes the following attributes:</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Attribute</th><th>Description</th></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableTransition_android_drawable android:drawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableTransition_android_toId android:toId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableTransition_android_fromId android:fromId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AnimatedStateListDrawableTransition_android_reversible android:reversible}</code></td><td></td></tr>
+     * </table>
+     * @see #AnimatedStateListDrawableTransition_android_drawable
+     * @see #AnimatedStateListDrawableTransition_android_toId
+     * @see #AnimatedStateListDrawableTransition_android_fromId
+     * @see #AnimatedStateListDrawableTransition_android_reversible
+     */
+    public static final int[] AnimatedStateListDrawableTransition={
+        0x01010199, 0x01010449, 0x0101044a, 0x0101044b
+      };
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#drawable}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableTransition} array.
+     *
+     * <p>May be a reference to another resource, in the form
+     * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
+     * attribute in the form
+     * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
+     *
+     * @attr name android:drawable
+     */
+    public static final int AnimatedStateListDrawableTransition_android_drawable=0;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#toId}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableTransition} array.
+     *
+     * <p>May be a reference to another resource, in the form
+     * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
+     * attribute in the form
+     * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
+     *
+     * @attr name android:toId
+     */
+    public static final int AnimatedStateListDrawableTransition_android_toId=1;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#fromId}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableTransition} array.
+     *
+     * <p>May be a reference to another resource, in the form
+     * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
+     * attribute in the form
+     * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
+     *
+     * @attr name android:fromId
+     */
+    public static final int AnimatedStateListDrawableTransition_android_fromId=2;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#reversible}
+     * attribute's value can be found in the {@link #AnimatedStateListDrawableTransition} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:reversible
+     */
+    public static final int AnimatedStateListDrawableTransition_android_reversible=3;
     /**
      * Attributes that can be used with a AppCompatImageView.
      * <p>Includes the following attributes:</p>
@@ -8527,7 +8722,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>
@@ -10553,6 +10748,230 @@ public final class R {
      */
     public static final int FontFamilyFont_ttcIndex=9;
     /**
+     * Attributes that can be used with a GradientColor.
+     * <p>Includes the following attributes:</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Attribute</th><th>Description</th></tr>
+     * <tr><td><code>{@link #GradientColor_android_startColor android:startColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_endColor android:endColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_type android:type}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_centerX android:centerX}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_centerY android:centerY}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_gradientRadius android:gradientRadius}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_tileMode android:tileMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_centerColor android:centerColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_startX android:startX}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_startY android:startY}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_endX android:endX}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColor_android_endY android:endY}</code></td><td></td></tr>
+     * </table>
+     * @see #GradientColor_android_startColor
+     * @see #GradientColor_android_endColor
+     * @see #GradientColor_android_type
+     * @see #GradientColor_android_centerX
+     * @see #GradientColor_android_centerY
+     * @see #GradientColor_android_gradientRadius
+     * @see #GradientColor_android_tileMode
+     * @see #GradientColor_android_centerColor
+     * @see #GradientColor_android_startX
+     * @see #GradientColor_android_startY
+     * @see #GradientColor_android_endX
+     * @see #GradientColor_android_endY
+     */
+    public static final int[] GradientColor={
+        0x0101019d, 0x0101019e, 0x010101a1, 0x010101a2, 
+        0x010101a3, 0x010101a4, 0x01010201, 0x0101020b, 
+        0x01010510, 0x01010511, 0x01010512, 0x01010513
+      };
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#startColor}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
+     * "<code>#<i>aarrggbb</i></code>".
+     *
+     * @attr name android:startColor
+     */
+    public static final int GradientColor_android_startColor=0;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#endColor}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
+     * "<code>#<i>aarrggbb</i></code>".
+     *
+     * @attr name android:endColor
+     */
+    public static final int GradientColor_android_endColor=1;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#type}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>Must be one of the following constant values.</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+     * <tr><td>linear</td><td>0</td><td></td></tr>
+     * <tr><td>radial</td><td>1</td><td></td></tr>
+     * <tr><td>sweep</td><td>2</td><td></td></tr>
+     * </table>
+     *
+     * @attr name android:type
+     */
+    public static final int GradientColor_android_type=2;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#centerX}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     * <p>May be a fractional value, which is a floating point number appended with
+     * either % or %p, such as "<code>14.5%</code>".
+     * The % suffix always means a percentage of the base size;
+     * the optional %p suffix provides a size relative to some parent container.
+     *
+     * @attr name android:centerX
+     */
+    public static final int GradientColor_android_centerX=3;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#centerY}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     * <p>May be a fractional value, which is a floating point number appended with
+     * either % or %p, such as "<code>14.5%</code>".
+     * The % suffix always means a percentage of the base size;
+     * the optional %p suffix provides a size relative to some parent container.
+     *
+     * @attr name android:centerY
+     */
+    public static final int GradientColor_android_centerY=4;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#gradientRadius}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     * <p>May be a dimension value, which is a floating point number appended with a
+     * unit such as "<code>14.5sp</code>".
+     * Available units are: px (pixels), dp (density-independent pixels),
+     * sp (scaled pixels based on preferred font size), in (inches), and
+     * mm (millimeters).
+     * <p>May be a fractional value, which is a floating point number appended with
+     * either % or %p, such as "<code>14.5%</code>".
+     * The % suffix always means a percentage of the base size;
+     * the optional %p suffix provides a size relative to some parent container.
+     *
+     * @attr name android:gradientRadius
+     */
+    public static final int GradientColor_android_gradientRadius=5;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#tileMode}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>Must be one of the following constant values.</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+     * <tr><td>clamp</td><td>0</td><td></td></tr>
+     * <tr><td>disabled</td><td>ffffffff</td><td></td></tr>
+     * <tr><td>mirror</td><td>2</td><td></td></tr>
+     * <tr><td>repeat</td><td>1</td><td></td></tr>
+     * </table>
+     *
+     * @attr name android:tileMode
+     */
+    public static final int GradientColor_android_tileMode=6;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#centerColor}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
+     * "<code>#<i>aarrggbb</i></code>".
+     *
+     * @attr name android:centerColor
+     */
+    public static final int GradientColor_android_centerColor=7;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#startX}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     *
+     * @attr name android:startX
+     */
+    public static final int GradientColor_android_startX=8;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#startY}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     *
+     * @attr name android:startY
+     */
+    public static final int GradientColor_android_startY=9;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#endX}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     *
+     * @attr name android:endX
+     */
+    public static final int GradientColor_android_endX=10;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#endY}
+     * attribute's value can be found in the {@link #GradientColor} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     *
+     * @attr name android:endY
+     */
+    public static final int GradientColor_android_endY=11;
+    /**
+     * Attributes that can be used with a GradientColorItem.
+     * <p>Includes the following attributes:</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Attribute</th><th>Description</th></tr>
+     * <tr><td><code>{@link #GradientColorItem_android_color android:color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GradientColorItem_android_offset android:offset}</code></td><td></td></tr>
+     * </table>
+     * @see #GradientColorItem_android_color
+     * @see #GradientColorItem_android_offset
+     */
+    public static final int[] GradientColorItem={
+        0x010101a5, 0x01010514
+      };
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#color}
+     * attribute's value can be found in the {@link #GradientColorItem} array.
+     *
+     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
+     * "<code>#<i>aarrggbb</i></code>".
+     *
+     * @attr name android:color
+     */
+    public static final int GradientColorItem_android_color=0;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#offset}
+     * attribute's value can be found in the {@link #GradientColorItem} array.
+     *
+     * <p>May be a floating point value, such as "<code>1.2</code>".
+     *
+     * @attr name android:offset
+     */
+    public static final int GradientColorItem_android_offset=1;
+    /**
      * Attributes that can be used with a LinearConstraintLayout.
      * <p>Includes the following attributes:</p>
      * <table>
@@ -12534,6 +12953,115 @@ public final class R {
      * @attr name com.example.chris.baking:popupTheme
      */
     public static final int Spinner_popupTheme=4;
+    /**
+     * Attributes that can be used with a StateListDrawable.
+     * <p>Includes the following attributes:</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Attribute</th><th>Description</th></tr>
+     * <tr><td><code>{@link #StateListDrawable_android_dither android:dither}</code></td><td></td></tr>
+     * <tr><td><code>{@link #StateListDrawable_android_visible android:visible}</code></td><td></td></tr>
+     * <tr><td><code>{@link #StateListDrawable_android_variablePadding android:variablePadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #StateListDrawable_android_constantSize android:constantSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #StateListDrawable_android_enterFadeDuration android:enterFadeDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #StateListDrawable_android_exitFadeDuration android:exitFadeDuration}</code></td><td></td></tr>
+     * </table>
+     * @see #StateListDrawable_android_dither
+     * @see #StateListDrawable_android_visible
+     * @see #StateListDrawable_android_variablePadding
+     * @see #StateListDrawable_android_constantSize
+     * @see #StateListDrawable_android_enterFadeDuration
+     * @see #StateListDrawable_android_exitFadeDuration
+     */
+    public static final int[] StateListDrawable={
+        0x0101011c, 0x01010194, 0x01010195, 0x01010196, 
+        0x0101030c, 0x0101030d
+      };
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#dither}
+     * attribute's value can be found in the {@link #StateListDrawable} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:dither
+     */
+    public static final int StateListDrawable_android_dither=0;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#visible}
+     * attribute's value can be found in the {@link #StateListDrawable} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:visible
+     */
+    public static final int StateListDrawable_android_visible=1;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#variablePadding}
+     * attribute's value can be found in the {@link #StateListDrawable} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:variablePadding
+     */
+    public static final int StateListDrawable_android_variablePadding=2;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#constantSize}
+     * attribute's value can be found in the {@link #StateListDrawable} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name android:constantSize
+     */
+    public static final int StateListDrawable_android_constantSize=3;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#enterFadeDuration}
+     * attribute's value can be found in the {@link #StateListDrawable} array.
+     *
+     * <p>May be an integer value, such as "<code>100</code>".
+     *
+     * @attr name android:enterFadeDuration
+     */
+    public static final int StateListDrawable_android_enterFadeDuration=4;
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#exitFadeDuration}
+     * attribute's value can be found in the {@link #StateListDrawable} array.
+     *
+     * <p>May be an integer value, such as "<code>100</code>".
+     *
+     * @attr name android:exitFadeDuration
+     */
+    public static final int StateListDrawable_android_exitFadeDuration=5;
+    /**
+     * Attributes that can be used with a StateListDrawableItem.
+     * <p>Includes the following attributes:</p>
+     * <table>
+     * <colgroup align="left" />
+     * <colgroup align="left" />
+     * <tr><th>Attribute</th><th>Description</th></tr>
+     * <tr><td><code>{@link #StateListDrawableItem_android_drawable android:drawable}</code></td><td></td></tr>
+     * </table>
+     * @see #StateListDrawableItem_android_drawable
+     */
+    public static final int[] StateListDrawableItem={
+        0x01010199
+      };
+    /**
+     * <p>This symbol is the offset where the {@link android.R.attr#drawable}
+     * attribute's value can be found in the {@link #StateListDrawableItem} array.
+     *
+     * <p>May be a reference to another resource, in the form
+     * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
+     * attribute in the form
+     * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
+     *
+     * @attr name android:drawable
+     */
+    public static final int StateListDrawableItem_android_drawable=0;
     /**
      * Attributes that can be used with a SwitchCompat.
      * <p>Includes the following attributes:</p>

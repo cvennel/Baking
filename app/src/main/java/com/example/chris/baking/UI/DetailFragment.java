@@ -1,5 +1,8 @@
 package com.example.chris.baking.UI;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
@@ -8,13 +11,19 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +32,7 @@ import android.widget.Toast;
 import com.example.chris.baking.DataTypes.Recipe;
 import com.example.chris.baking.DataTypes.RecipeStep;
 import com.example.chris.baking.R;
+import com.example.chris.baking.Utils.ExoPlayerFullScreenController;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -36,7 +46,9 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
+import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
@@ -45,25 +57,28 @@ import com.google.android.exoplayer2.util.Util;
 import com.squareup.picasso.Picasso;
 
 
-public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
-
+public class DetailFragment extends Fragment implements ExoPlayer.EventListener {
 
 
     public static final String EXTRA_RECIPE = "extra_recipe";
     public static final String EXTRA_STEP = "extra_step";
 
 
-
     private Recipe mCurrentRecipe;
     private RecipeStep mCurrentRecipeStep;
     private int mCurrentStepNumber;
 
-    private  Boolean mIsTwoPane;
+    private Boolean mIsTwoPane;
     private ImageView mClipArtImageView;
 
     private MediaSessionCompat mMediaSession;
     private PlaybackStateCompat.Builder mStateBuilder;
+
+
+    ExoPlayerFullScreenController mExoPlayerFullScreenController;
+
     private SimpleExoPlayer mExoPlayer;
+    private SimpleExoPlayerView mExoPlayerView;
 
     private View mRootView;
 
@@ -72,13 +87,13 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        if (savedInstanceState != null){
+        if (savedInstanceState != null) {
             mCurrentRecipe = savedInstanceState.getParcelable(EXTRA_RECIPE);
             mCurrentStepNumber = savedInstanceState.getInt(EXTRA_STEP);
-            mCurrentRecipeStep = mCurrentRecipe.getRecipieSteps().get(mCurrentStepNumber);
+            mCurrentRecipeStep = mCurrentRecipe.getSteps().get(mCurrentStepNumber);
         }
 
-        mRootView = inflater.inflate(R.layout.fragment_detail,container,false);
+        mRootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
         mClipArtImageView = mRootView.findViewById(R.id.detail_activity_image_view);
 
@@ -88,23 +103,18 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
 
         updateActivityDescription();
 
+        mExoPlayerFullScreenController = new ExoPlayerFullScreenController(getActivity(), (SimpleExoPlayerView) mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view), mRootView);
         bindButtons();
-
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            setLandscapeView();
-        } else {
-            setPortraitView();
-        }
 
         return mRootView;
     }
 
 
-    public void setFragmentRecipeInfo(Recipe currentRecipe, int currentStepNumber){
+    public void setFragmentRecipeInfo(Recipe currentRecipe, int currentStepNumber, Boolean isTwoPane) {
         mCurrentRecipe = currentRecipe;
         mCurrentStepNumber = currentStepNumber;
-        mCurrentRecipeStep = mCurrentRecipe.getRecipieSteps().get(mCurrentStepNumber);
-
+        mCurrentRecipeStep = mCurrentRecipe.getSteps().get(mCurrentStepNumber);
+        mIsTwoPane = isTwoPane;
 
     }
 
@@ -120,47 +130,8 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        if ((newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)){
+        adjustImageViewSize();
 
-            setLandscapeView();
-
-
-
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-            setPortraitView();
-
-        }
-
-    }
-
-    private void setPortraitView() {
-        PlayerView playerView = mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view);
-        ViewGroup.LayoutParams params = playerView.getLayoutParams();
-
-        //https://androidactivity.wordpress.com/2011/10/04/use-dip-sp-metrics-programmatically/
-        params.height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 400, getResources().getDisplayMetrics());
-
-
-        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
-
-
-        if(getActivity().getActionBar() != null){
-            getActivity().getActionBar().show();
-        }
-    }
-
-    private void setLandscapeView() {
-        PlayerView playerView = mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view);
-
-        ViewGroup.LayoutParams params = playerView.getLayoutParams();
-
-        params.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        params.height = ViewGroup.LayoutParams.MATCH_PARENT;
-
-        if(getActivity().getActionBar() != null){
-            getActivity().getActionBar().hide();
-        }
     }
 
 
@@ -182,13 +153,17 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
 
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector);
 
-        PlayerView playerView = mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view);
+        mExoPlayerView = mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view);
 
-        playerView.setDefaultArtwork(BitmapFactory.decodeResource(getResources(), R.drawable.ic_play_movie));
+        mExoPlayerView.setDefaultArtwork(BitmapFactory.decodeResource(getResources(), R.drawable.ic_play_movie));
 
-        playerView.setPlayer(mExoPlayer);
+        mExoPlayerView.setPlayer(mExoPlayer);
 
         mExoPlayer.addListener(this);
+
+        mExoPlayerView.setControllerShowTimeoutMs(0);
+        mExoPlayerView.setControllerHideOnTouch(false);
+
 
         setVideo();
 
@@ -216,7 +191,7 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
         mMediaSession.setActive(true);
     }
 
-    void releaseExoplayer(){
+    void releaseExoplayer() {
         mExoPlayer.stop();
         mExoPlayer.release();
         mExoPlayer = null;
@@ -230,7 +205,7 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mCurrentStepNumber < mCurrentRecipe.getRecipieSteps().size() -1){
+                if (mCurrentStepNumber < mCurrentRecipe.getSteps().size() - 1) {
                     updateView(mCurrentStepNumber + 1);
 
 
@@ -243,21 +218,21 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mCurrentStepNumber > 0){
+                if (mCurrentStepNumber > 0) {
                     updateView(mCurrentStepNumber - 1);
-                }else {
-                    Toast.makeText(getContext(),getString(R.string.error_at_first_step), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), getString(R.string.error_at_first_step), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    void updateView(int newStepNumber){
+    void updateView(int newStepNumber) {
         Boolean isPlaying = mExoPlayer.getPlayWhenReady();
 
         mExoPlayer.stop();
         mCurrentStepNumber = newStepNumber;
-        mCurrentRecipeStep = mCurrentRecipe.getRecipieSteps().get(mCurrentStepNumber);
+        mCurrentRecipeStep = mCurrentRecipe.getSteps().get(mCurrentStepNumber);
 
         setVideo();
 
@@ -267,7 +242,7 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
 
     }
 
-    void setVideo(){
+    void setVideo() {
 
         if (!mCurrentRecipeStep.getVideoURL().isEmpty()) {
 
@@ -291,29 +266,45 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
         } else {
             PlayerView playerView = mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view);
 
-            ViewGroup.LayoutParams params = playerView.getLayoutParams();
-
-            params.height = playerView.getMeasuredHeight();
-            params.width = playerView.getMeasuredWidth();
 
             playerView.setVisibility(View.GONE);
 
-            mClipArtImageView.setLayoutParams(params);
             mClipArtImageView.setVisibility(View.VISIBLE);
 
 
             Picasso.with(getContext()).load(R.drawable.baking_clipart).into(mClipArtImageView);
+
+            adjustImageViewSize();
+
         }
-
-
 
 
     }
 
-    void updateActivityDescription(){
+    private void adjustImageViewSize() {
+        DisplayMetrics metrics = new DisplayMetrics();
+
+        ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        mClipArtImageView.setMaxHeight(metrics.heightPixels/2);
+    }
+
+    void updateActivityDescription() {
         TextView textView = mRootView.findViewById(R.id.detail_activity_description_tv);
 
         textView.setText(mCurrentRecipeStep.getDescription());
+    }
+
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+        if ((playbackState == ExoPlayer.STATE_READY) && playWhenReady) {
+            mStateBuilder.setState(PlaybackStateCompat.STATE_PLAYING,
+                    mExoPlayer.getCurrentPosition(), 1f);
+        } else if ((playbackState == ExoPlayer.STATE_READY)) {
+            mStateBuilder.setState(PlaybackStateCompat.STATE_PAUSED,
+                    mExoPlayer.getCurrentPosition(), 1f);
+        }
+        mMediaSession.setPlaybackState(mStateBuilder.build());
     }
 
     @Override
@@ -329,18 +320,6 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
     @Override
     public void onLoadingChanged(boolean isLoading) {
 
-    }
-
-    @Override
-    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-        if((playbackState == ExoPlayer.STATE_READY) && playWhenReady){
-            mStateBuilder.setState(PlaybackStateCompat.STATE_PLAYING,
-                    mExoPlayer.getCurrentPosition(), 1f);
-        } else if((playbackState == ExoPlayer.STATE_READY)){
-            mStateBuilder.setState(PlaybackStateCompat.STATE_PAUSED,
-                    mExoPlayer.getCurrentPosition(), 1f);
-        }
-        mMediaSession.setPlaybackState(mStateBuilder.build());
     }
 
     @Override
@@ -390,7 +369,6 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener{
             mExoPlayer.seekTo(0);
         }
     }
-
 
 
 }

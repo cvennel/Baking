@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/detail_activity_container"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-        android:id="@+id/recipe_step_fragment_exoplayer_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/detail_activity_image_view"
+    <LinearLayout
+        android:id="@+id/detail_activity_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"/>
+        android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/exo_player_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+                android:id="@+id/recipe_step_fragment_exoplayer_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="300dp"/>
+
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <!--TODO figure out height issue-->
+            <ImageView
+                android:id="@+id/detail_activity_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true" />
+
 
             <TextView
                 android:id="@+id/detail_activity_description_tv"
@@ -33,10 +43,11 @@
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                style="?android:attr/buttonBarStyle"
                 android:id="@+id/button_bar"
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="12dp">
 
                 <Button
                     android:id="@+id/button_previous"
@@ -53,6 +64,6 @@
                     android:text="@string/next" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
 
+    </LinearLayout>
+</ScrollView>

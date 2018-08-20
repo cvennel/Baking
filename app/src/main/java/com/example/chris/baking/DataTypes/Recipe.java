@@ -1,17 +1,42 @@
 package com.example.chris.baking.DataTypes;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.example.chris.baking.Utils.ListTypeConverter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity(tableName = "recipe_table")
+
 public class Recipe implements Parcelable {
+
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     private int id;
+
+    @ColumnInfo(name = "name")
     private String name;
+
+    @TypeConverters(ListTypeConverter.class)
+    @ColumnInfo(name = "ingredients")
     private List<Ingredient> ingredients;
+
+
+
+    @TypeConverters(ListTypeConverter.class)
+    @ColumnInfo(name = "steps")
     private List<RecipeStep> steps;
+
+    @ColumnInfo(name = "servings")
     private int servings;
+
+    @ColumnInfo(name = "image")
     private String image;
 
     public Recipe(){
@@ -52,11 +77,11 @@ public class Recipe implements Parcelable {
         this.ingredients = ingredients;
     }
 
-    public List<RecipeStep> getRecipieSteps() {
+    public List<RecipeStep> getSteps() {
         return steps;
     }
 
-    public void setRecipieSteps(List<RecipeStep> recipeSteps) {
+    public void setSteps(List<RecipeStep> recipeSteps) {
         this.steps = recipeSteps;
     }
 
@@ -108,7 +133,7 @@ public class Recipe implements Parcelable {
         name = parcel.readString();
         ingredients = new ArrayList<>();
         parcel.readList(ingredients,Recipe.class.getClassLoader());
-        steps = new ArrayList<>();
+        steps= new ArrayList<>();
         parcel.readList(steps, Recipe.class.getClassLoader());
         servings = parcel.readInt();
         image = parcel.readString();
@@ -118,7 +143,7 @@ public class Recipe implements Parcelable {
         this.id = recipe.id;
         this.name = recipe.name;
         this.ingredients = recipe.ingredients;
-        this.steps = recipe.getRecipieSteps();
+        this.steps = recipe.getSteps();
         this.servings = recipe.servings;
         this.image = recipe.image;
     }

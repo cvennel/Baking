@@ -58,15 +58,15 @@
 
 
 
-        <!--<ImageButton android:id="@id/exo_prev"-->
+        <ImageButton android:id="@id/exo_prev"
 
-            <!--style="@style/ExoMediaButton.Previous"/>-->
+            style="@style/ExoMediaButton.Previous"/>
 
 
 
-        <!--<ImageButton android:id="@id/exo_rew"-->
+        <ImageButton android:id="@id/exo_rew"
 
-            <!--style="@style/ExoMediaButton.Rewind"/>-->
+            style="@style/ExoMediaButton.Rewind"/>
 
 
 
@@ -94,9 +94,9 @@
 
 
 
-        <!--<ImageButton android:id="@id/exo_ffwd"-->
+        <ImageButton android:id="@id/exo_ffwd"
 
-            <!--style="@style/ExoMediaButton.FastForward"/>-->
+            style="@style/ExoMediaButton.FastForward"/>
 
 
 
@@ -174,7 +174,23 @@
 
             android:textColor="#FFBEBEBE"/>
 
+        <!--Toggle Fullscreen Button-->
+        <FrameLayout
+            android:id="@+id/exo_fullscreen_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right">
 
+            <ImageView
+                android:id="@+id/exo_fullscreen_icon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_fullscreen_expand"/>
+
+        </FrameLayout>
 
     </LinearLayout>
 

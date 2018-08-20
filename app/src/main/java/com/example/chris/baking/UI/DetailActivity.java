@@ -48,6 +48,7 @@ public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_RECIPE = "extra_recipe";
     public static final String EXTRA_STEP = "extra_step";
+    public static final String EXTRA_TWO_PANE = "extra_two_pane";
 
 
 
@@ -64,8 +65,9 @@ public class DetailActivity extends AppCompatActivity {
         Recipe currentRecipe = getIntent().getParcelableExtra(EXTRA_RECIPE);
         int currentStepNumber = getIntent().getIntExtra(EXTRA_STEP, -5);
 
+        Boolean isTwoPane = getIntent().getBooleanExtra(EXTRA_TWO_PANE, false);
 
-        fragment.setFragmentRecipeInfo(currentRecipe, currentStepNumber );
+        fragment.setFragmentRecipeInfo(currentRecipe, currentStepNumber, isTwoPane);
 
 
         manager.beginTransaction().add(R.id.detail_fragment_container, fragment, "DetailFragment").commit();

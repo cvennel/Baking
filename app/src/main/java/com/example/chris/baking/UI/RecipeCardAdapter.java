@@ -48,7 +48,6 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
     }
 
     RecipeCardAdapter(Context context, Activity activity){
-//        mRecipeList = recipeList;
         mContext = context;
         mActivity = activity;
     }
@@ -66,8 +65,7 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
     @Override
     public void onBindViewHolder(@NonNull final RecipeViewHolder viewHolder, final int i) {
 
-
-        Recipe currentRecipe = mRecipeList.get(viewHolder.getAdapterPosition());
+        final Recipe currentRecipe = mRecipeList.get(viewHolder.getAdapterPosition());
 
         viewHolder.textView.setText(currentRecipe.getName());
 
@@ -91,7 +89,7 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
                 public void onClick(View view) {
 
                     Intent intent = new Intent(mActivity, RecipeActivity.class);
-                    intent.putExtra(RecipeActivity.EXTRA_RECIPE, mRecipeList.get(viewHolder.getAdapterPosition()));
+                    intent.putExtra(RecipeActivity.EXTRA_RECIPE, currentRecipe);
 
                     mContext.startActivity(intent);
                 }
