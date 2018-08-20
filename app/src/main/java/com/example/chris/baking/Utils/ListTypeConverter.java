@@ -12,14 +12,14 @@ import java.util.Collections;
 import java.util.List;
 
 //https://medium.com/@toddcookevt/android-room-storing-lists-of-objects-766cca57e3f9
-public class RecipeStepListTypeConverter {
+public class ListTypeConverter {
 
     private static Gson gson = new Gson();
 
     @TypeConverter
     public static List<RecipeStep> stringToRecipeStep(String string){
         if (string == null){
-            return Collections.emptyList();
+            return null;
         }
 
         Type recipeStepListType = new TypeToken<List<RecipeStep>>(){}.getType();
@@ -30,9 +30,9 @@ public class RecipeStepListTypeConverter {
 
     @TypeConverter
     public  static  String recipeStepToString(List<RecipeStep> recipeSteps){
-        return gson.toJson(recipeSteps);
+        Type type = new TypeToken<List<RecipeStep>>(){}.getType();
+        return gson.toJson(recipeSteps, type);
     }
-
 
     @TypeConverter
     public static List<Ingredient> stringToIngredient(String string){
@@ -47,7 +47,9 @@ public class RecipeStepListTypeConverter {
 
 
     @TypeConverter
-    public  static  String IngredientToString(List<Ingredient> ingredients){
-        return gson.toJson(ingredients);
+    public  static  String IngredientToString(List<Ingredient> ingredients) {
+        Type type = new TypeToken<List<Ingredient>>() {
+        }.getType();
+        return gson.toJson(ingredients, type);
     }
 }

@@ -1,9 +1,11 @@
-package com.example.chris.baking.DataTypes;
+package com.example.chris.baking.Database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+
+import com.example.chris.baking.DataTypes.Recipe;
 
 
 @Database(entities = Recipe.class, version = 1)

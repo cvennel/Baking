@@ -1,4 +1,4 @@
-#Wed Aug 15 15:38:23 PDT 2018
-base.0=C\:\\Users\\cvenn\\Documents\\Android Studio Projects\\Baking App\\Baking\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
+#Mon Aug 20 14:13:48 PDT 2018
+base.0=C\:\\Users\\chris\\StudioProjects\\Baking\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\30
 path.0=classes.dex
 renamed.0=classes.dex

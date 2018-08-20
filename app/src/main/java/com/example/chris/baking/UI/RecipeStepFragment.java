@@ -40,7 +40,7 @@ public class RecipeStepFragment extends Fragment {
                     FragmentManager manager = getFragmentManager();
 
                     DetailFragment detailFragment = new DetailFragment();
-                    detailFragment.setFragmentRecipeInfo(RecipeActivity.SELECTED_RECIPE, mRecipeStepID);
+                    detailFragment.setFragmentRecipeInfo(RecipeActivity.SELECTED_RECIPE, mRecipeStepID, mIsTwoPane);
 
                     manager.beginTransaction().replace(R.id.detail_fragment_container, detailFragment, "DetailFragment").commit();
                 } else {
@@ -48,6 +48,7 @@ public class RecipeStepFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), DetailActivity.class);
                     intent.putExtra(DetailActivity.EXTRA_RECIPE, RecipeActivity.SELECTED_RECIPE);
                     intent.putExtra(DetailActivity.EXTRA_STEP, mRecipeStepID);
+                    intent.putExtra(DetailActivity.EXTRA_TWO_PANE, mIsTwoPane);
 
                     startActivity(intent);
                 }
