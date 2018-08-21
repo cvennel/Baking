@@ -74,7 +74,6 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
         if (imageLocation != null) {
             ImageView imageView = viewHolder.imageView;
             if (imageLocation.equals("")) {
-//                imageLocation = "https://images.pexels.com/photos/291767/pexels-photo-291767.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
                 imageView.setVisibility(View.GONE);
                 viewHolder.indexCardEffect.setVisibility(View.VISIBLE);
             }else {

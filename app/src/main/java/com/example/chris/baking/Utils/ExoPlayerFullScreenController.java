@@ -36,8 +36,6 @@ public class ExoPlayerFullScreenController {
 
     private void initFullscreenDialog() {
 
-
-
         mFullScreenDialog = new Dialog(mContext, android.R.style.Theme_Black_NoTitleBar_Fullscreen) {
             public void onBackPressed() {
                 if (mExoPlayerFullscreen)

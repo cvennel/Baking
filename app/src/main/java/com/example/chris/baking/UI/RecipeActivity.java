@@ -1,19 +1,17 @@
 package com.example.chris.baking.UI;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.chris.baking.DataTypes.Ingredient;
 import com.example.chris.baking.DataTypes.Recipe;
-import com.example.chris.baking.DataTypes.RecipeStep;
 import com.example.chris.baking.R;
 import com.example.chris.baking.Widget.UpdateWidgetService;
 
 import java.io.StringWriter;
-import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity {
 
@@ -38,9 +36,6 @@ public class RecipeActivity extends AppCompatActivity {
         if (findViewById(R.id.tablet_divider) != null){
             mTwoPaneView = true;
         }
-
-//        BakingAppWidget
-//        BakingAppWidget.setIngredientList(SELECTED_RECIPE.getIngredients());
 
         UpdateWidgetService.startActionUpdateRecipe(this, SELECTED_RECIPE);
 

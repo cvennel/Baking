@@ -1,21 +1,13 @@
 package com.example.chris.baking.UI;
 
-import android.content.Context;
-import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
 import com.example.chris.baking.DataTypes.Recipe;
-import com.example.chris.baking.Database.RecipeDatabase;
 import com.example.chris.baking.Utils.JsonParser;
 import com.example.chris.baking.Utils.NetworkUtils;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
-import java.io.StringReader;
 import java.net.URL;
 import java.util.List;
 

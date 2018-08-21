@@ -44,12 +44,12 @@ public class DetailActivityTest {
     @Test
     public void TestButtons(){
 
-        for (int i = 0; i < SAMPLE_RECIPE.getRecipieSteps().size(); i++) {
+        for (int i = 0; i < SAMPLE_RECIPE.getSteps().size(); i++) {
             onView(ViewMatchers.withId(R.id.button_next)).perform(ViewActions.scrollTo());
 
             onView(ViewMatchers.withId(R.id.detail_activity_description_tv))
                     .check(matches(ViewMatchers
-                            .withText(SAMPLE_RECIPE.getRecipieSteps().get(i).getDescription())));
+                            .withText(SAMPLE_RECIPE.getSteps().get(i).getDescription())));
 
             onView(ViewMatchers.withId(R.id.button_next)).perform(ViewActions.click());
         }
@@ -63,12 +63,12 @@ public class DetailActivityTest {
                                 .getWindow().getDecorView())))
                 .check(matches(isDisplayed()));
 
-        for (int i = SAMPLE_RECIPE.getRecipieSteps().size() -1 ; i >= 0 ; i--) {
+        for (int i = SAMPLE_RECIPE.getSteps().size() -1 ; i >= 0 ; i--) {
             onView(ViewMatchers.withId(R.id.button_previous)).perform(ViewActions.scrollTo());
 
             onView(ViewMatchers.withId(R.id.detail_activity_description_tv))
                     .check(matches(ViewMatchers
-                            .withText(SAMPLE_RECIPE.getRecipieSteps().get(i).getDescription())));
+                            .withText(SAMPLE_RECIPE.getSteps().get(i).getDescription())));
 
             onView(ViewMatchers.withId(R.id.button_previous)).perform(ViewActions.click());
         }

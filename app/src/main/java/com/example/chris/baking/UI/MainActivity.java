@@ -7,8 +7,8 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             LocalDate lastUpdate = LocalDate.parse(lastUpdatePrefString);
 
-            if (ChronoUnit.DAYS.between(lastUpdate, LocalDate.now()) == 0 && mRecipeRepository.getRecipes() != null && 1 == 2) {
+            if (ChronoUnit.DAYS.between(lastUpdate, LocalDate.now()) == 0 && mRecipeRepository.getRecipes() != null) {
                 mAdapter.setRecipeList(mRecipeRepository.getRecipes());
             } else {
 

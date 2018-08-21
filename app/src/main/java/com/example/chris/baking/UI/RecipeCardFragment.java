@@ -48,8 +48,6 @@ public class RecipeCardFragment extends Fragment {
         if (mImageLocation != null) {
             ImageView imageView = rootView.findViewById(R.id.recipe_image);
             if (mImageLocation.equals("")) {
-// TODO remove line when found beter idea
-// mImageLocation = "https://images.pexels.com/photos/291767/pexels-photo-291767.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
                 imageView.setVisibility(View.GONE);
             } else {
                 Picasso.with(getContext()).load(mImageLocation).into(imageView);

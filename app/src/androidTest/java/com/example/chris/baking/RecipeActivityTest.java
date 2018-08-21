@@ -70,7 +70,7 @@ public class RecipeActivityTest {
         onView(withId(fragments.get(0).getId())).perform(click());
 
 
-        onView(withId(R.id.detail_activity_description_tv)).check(matches(withText(SAMPLE_RECIPE.getRecipieSteps().get(0).getDescription())));
+        onView(withId(R.id.detail_activity_description_tv)).check(matches(withText(SAMPLE_RECIPE.getSteps().get(0).getDescription())));
 
     }
 

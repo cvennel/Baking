@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\chris\StudioProjects\Baking\app\src\main\assets"><file name="JSON.txt" path="C:\Users\chris\StudioProjects\Baking\app\src\main\assets\JSON.txt"/></source><source path="C:\Users\chris\StudioProjects\Baking\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\chris\StudioProjects\Baking\app\src\debug\assets"/></dataSet></merger>
