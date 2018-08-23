@@ -18,10 +18,10 @@ import com.example.chris.baking.UI.RecipeActivity;
 /**
  * Implementation of App Widget functionality.
  */
-public class BakingAppWidget extends AppWidgetProvider {
+public class BakingAppWidgetProvider extends AppWidgetProvider {
 
 
-
+//TODO fix widget updating
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId, @Nullable Recipe recipe) {
 
