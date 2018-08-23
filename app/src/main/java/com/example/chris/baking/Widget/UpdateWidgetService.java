@@ -4,7 +4,6 @@ import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -101,9 +100,9 @@ public class UpdateWidgetService extends IntentService {
     private void handleActionUpdateWidget(@Nullable Recipe recipe){
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
 
-        int[] appIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, BakingAppWidget.class));
+        int[] appIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, BakingAppWidgetProvider.class));
 
-        BakingAppWidget.updateRecipe(this, appWidgetManager, appIds, recipe);
+        BakingAppWidgetProvider.updateRecipe(this, appWidgetManager, appIds, recipe);
 
     }
 
