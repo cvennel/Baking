@@ -34,7 +34,7 @@ public class DetailActivityTest {
         protected Intent getActivityIntent() {
             Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
             Intent result = new Intent(context, DetailActivity.class);
-            result.putExtra(DetailActivity.EXTRA_RECIPE, SAMPLE_RECIPE);
+            result.putExtra(context.getString(R.string.intent_extra_recipe), SAMPLE_RECIPE);
             result.putExtra(DetailActivity.EXTRA_STEP, 0);
             return result;
         }

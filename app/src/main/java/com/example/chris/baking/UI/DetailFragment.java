@@ -57,7 +57,6 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
     private RecipeStep mCurrentRecipeStep;
     private int mCurrentStepNumber;
 
-    private Boolean mIsTwoPane;
     private ImageView mClipArtImageView;
 
     private MediaSessionCompat mMediaSession;
@@ -67,7 +66,7 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
     ExoPlayerFullScreenController mExoPlayerFullScreenController;
 
     private SimpleExoPlayer mExoPlayer;
-    private SimpleExoPlayerView mExoPlayerView;
+
 
     private View mRootView;
 
@@ -85,25 +84,19 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
         mRootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
         mClipArtImageView = mRootView.findViewById(R.id.detail_activity_image_view);
-
-        setupMediaSession();
-
-        setupExoplayer();
-
         updateActivityDescription();
 
-        mExoPlayerFullScreenController = new ExoPlayerFullScreenController(getActivity(), (SimpleExoPlayerView) mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view), mRootView);
+
         bindButtons();
 
         return mRootView;
     }
 
 
-    public void setFragmentRecipeInfo(Recipe currentRecipe, int currentStepNumber, Boolean isTwoPane) {
+    public void setFragmentRecipeInfo(Recipe currentRecipe, int currentStepNumber) {
         mCurrentRecipe = currentRecipe;
         mCurrentStepNumber = currentStepNumber;
         mCurrentRecipeStep = mCurrentRecipe.getSteps().get(mCurrentStepNumber);
-        mIsTwoPane = isTwoPane;
 
     }
 
@@ -123,45 +116,49 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (Util.SDK_INT > 23) {
+            setupMediaSession();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (Util.SDK_INT <= 23) {
+            setupMediaSession();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (Util.SDK_INT <= 23) {
+            releaseExoplayer();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Util.SDK_INT > 23) {
+            releaseExoplayer();
+        }
+    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mMediaSession.setActive(false);
+
         releaseExoplayer();
     }
 
-
-    void setupExoplayer() {
-
-        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-        TrackSelection.Factory videoTrackSelectionFactory =
-                new AdaptiveTrackSelection.Factory(bandwidthMeter);
-        DefaultTrackSelector trackSelector =
-                new DefaultTrackSelector(videoTrackSelectionFactory);
-
-        mExoPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector);
-
-        mExoPlayerView = mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view);
-
-        mExoPlayerView.setDefaultArtwork(BitmapFactory.decodeResource(getResources(), R.drawable.ic_play_movie));
-
-        mExoPlayerView.setPlayer(mExoPlayer);
-
-        mExoPlayer.addListener(this);
-
-        mExoPlayerView.setControllerShowTimeoutMs(0);
-        mExoPlayerView.setControllerHideOnTouch(false);
-
-
-        setVideo();
-
-    }
-
-
     private void setupMediaSession() {
-        mMediaSession = new MediaSessionCompat(getContext(), DetailActivity.class.getSimpleName());
-
+        if (mMediaSession == null) {
+            mMediaSession = new MediaSessionCompat(getContext(), DetailActivity.class.getSimpleName());
+        }
         //binds what actions to handle
         mMediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
 
@@ -178,12 +175,46 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
         mMediaSession.setCallback(new BakingAppSessionCallback());
 
         mMediaSession.setActive(true);
+
+        setupExoplayer();
+
     }
 
+    void setupExoplayer() {
+
+        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        TrackSelection.Factory videoTrackSelectionFactory =
+                new AdaptiveTrackSelection.Factory(bandwidthMeter);
+        DefaultTrackSelector trackSelector =
+                new DefaultTrackSelector(videoTrackSelectionFactory);
+
+        if (mExoPlayer == null) {
+            mExoPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector);
+        }
+        SimpleExoPlayerView mExoPlayerView = mRootView.findViewById(R.id.recipe_step_fragment_exoplayer_view);
+
+        mExoPlayerView.setDefaultArtwork(BitmapFactory.decodeResource(getResources(), R.drawable.ic_play_movie));
+
+        mExoPlayerView.setPlayer(mExoPlayer);
+
+        mExoPlayer.addListener(this);
+
+        mExoPlayerView.setControllerShowTimeoutMs(0);
+        mExoPlayerView.setControllerHideOnTouch(false);
+
+        mExoPlayerFullScreenController = new ExoPlayerFullScreenController(getActivity(), (SimpleExoPlayerView) mExoPlayerView, mRootView);
+        setVideo();
+
+    }
+
+
     void releaseExoplayer() {
-        mExoPlayer.stop();
-        mExoPlayer.release();
-        mExoPlayer = null;
+        mMediaSession.setActive(false);
+        if (mExoPlayer != null) {
+            mExoPlayer.stop();
+            mExoPlayer.release();
+            mExoPlayer = null;
+        }
     }
 
     void bindButtons() {
@@ -275,7 +306,7 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
 
         ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        mClipArtImageView.setMaxHeight(metrics.heightPixels/2);
+        mClipArtImageView.setMaxHeight(metrics.heightPixels / 2);
     }
 
     void updateActivityDescription() {

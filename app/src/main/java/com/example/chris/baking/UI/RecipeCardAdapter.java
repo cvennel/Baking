@@ -88,7 +88,7 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
                 public void onClick(View view) {
 
                     Intent intent = new Intent(mActivity, RecipeActivity.class);
-                    intent.putExtra(RecipeActivity.EXTRA_RECIPE, currentRecipe);
+                    intent.putExtra(mContext.getString(R.string.intent_extra_recipe), currentRecipe);
 
                     mContext.startActivity(intent);
                 }

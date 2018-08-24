@@ -25,7 +25,7 @@ public class RecipeRepository {
 
     public void updateRecipes(List<Recipe> recipes){
 
-        clear();
+        new AsyncClearTask(recipeDao).execute();
 
         for(Recipe recipe : recipes) {
             new AsyncInsertTask(recipeDao).execute(recipe);

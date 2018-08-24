@@ -14,6 +14,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.example.chris.baking.DataTypes.Recipe;
+import com.example.chris.baking.R;
 import com.example.chris.baking.UI.RecipeActivity;
 
 public class UpdateWidgetService extends IntentService {
@@ -80,8 +81,7 @@ public class UpdateWidgetService extends IntentService {
     public static void startActionUpdateRecipe (Context context, Recipe recipe){
         Intent intent = new Intent(context, UpdateWidgetService.class);
         intent.setAction(ACTION_UPDATE_WIDGET_INGREDIENTS);
-        //TODO string resource
-        intent.putExtra(RecipeActivity.EXTRA_RECIPE, recipe);
+        intent.putExtra(context.getString(R.string.intent_extra_recipe), recipe);
         context.startService(intent);
     }
 
@@ -90,7 +90,7 @@ public class UpdateWidgetService extends IntentService {
         if (intent != null){
             final String action = intent.getAction();
             if (ACTION_UPDATE_WIDGET_INGREDIENTS.equals(action)){
-                Recipe recipe = intent.getParcelableExtra(RecipeActivity.EXTRA_RECIPE);
+                Recipe recipe = intent.getParcelableExtra(getApplicationContext().getString(R.string.intent_extra_recipe));
                 handleActionUpdateWidget(recipe);
             }
         }

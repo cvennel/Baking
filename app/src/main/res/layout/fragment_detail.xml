@@ -29,7 +29,6 @@
             android:layout_marginTop="20dp"
             android:orientation="vertical">
 
-            <!--TODO figure out height issue-->
             <ImageView
                 android:id="@+id/detail_activity_image_view"
                 android:layout_width="match_parent"

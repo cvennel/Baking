@@ -28,7 +28,8 @@
             android:configChanges="orientation"
             android:parentActivityName=".UI.RecipeActivity" />
 
-        <service android:name=".Widget.GridWidgetService" />
+        <service android:name=".Widget.ListWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
         <service android:name=".Widget.UpdateWidgetService" />
 
         <receiver android:name=".Widget.BakingAppWidgetProvider">

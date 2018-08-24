@@ -37,7 +37,7 @@ public class RecipeActivityTest {
         protected Intent getActivityIntent() {
             Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
             Intent result = new Intent(targetContext, RecipeActivity.class);
-            result.putExtra(DetailActivity.EXTRA_RECIPE, SAMPLE_RECIPE);
+            result.putExtra(targetContext.getString(R.string.intent_extra_recipe), SAMPLE_RECIPE);
             return result;
         }
     };

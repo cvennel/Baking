@@ -1,10 +1,13 @@
 package com.example.chris.baking.UI;
 
+import android.appwidget.AppWidgetManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chris.baking.DataTypes.Ingredient;
 import com.example.chris.baking.DataTypes.Recipe;
@@ -15,7 +18,6 @@ import java.io.StringWriter;
 
 public class RecipeActivity extends AppCompatActivity {
 
-    public static final String EXTRA_RECIPE = "extra_recipe";
     public static final Recipe SELECTED_RECIPE = new Recipe();
 
     private int mDefaultPosition = -1;
@@ -29,15 +31,22 @@ public class RecipeActivity extends AppCompatActivity {
 
 
         if (savedInstanceState != null) {
-            savedInstanceState.getParcelable(EXTRA_RECIPE);
+            savedInstanceState.getParcelable(getString(R.string.intent_extra_recipe));
         } else {
-            SELECTED_RECIPE.setRecipe((Recipe) getIntent().getParcelableExtra(EXTRA_RECIPE));
+            if(!getIntent().hasExtra(getString(R.string.intent_extra_recipe))){
+                NavUtils.navigateUpFromSameTask(this);
+                Toast.makeText(getApplicationContext(),getString(R.string.error_no_recipe), Toast.LENGTH_SHORT).show();
+                return;
+            }
+            SELECTED_RECIPE.setRecipe((Recipe) getIntent().getParcelableExtra(getString(R.string.intent_extra_recipe)));
         }
         if (findViewById(R.id.tablet_divider) != null){
             mTwoPaneView = true;
         }
 
         UpdateWidgetService.startActionUpdateRecipe(this, SELECTED_RECIPE);
+
+
 
 
         this.setTitle(SELECTED_RECIPE.getName());
@@ -73,7 +82,7 @@ public class RecipeActivity extends AppCompatActivity {
             mTwoPaneView = true;
 
             DetailFragment detailFragment = new DetailFragment();
-            detailFragment.setFragmentRecipeInfo(SELECTED_RECIPE, 0, mTwoPaneView);
+            detailFragment.setFragmentRecipeInfo(SELECTED_RECIPE, 0);
 
             transaction.add(R.id.detail_fragment_container, detailFragment, "DetailFragment");
         }
@@ -84,6 +93,6 @@ public class RecipeActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(EXTRA_RECIPE, SELECTED_RECIPE);
+        outState.putParcelable(getString(R.string.intent_extra_recipe), SELECTED_RECIPE);
     }
 }
